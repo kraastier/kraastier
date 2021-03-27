@@ -21,7 +21,7 @@
   <meta name="twitter:title" content="">
   <meta name="twitter:description" content="">
   <meta name="twitter:image" content="">
-<script src="https://smtpjs.com/v3/smtp.js"></script>
+
   <!-- Place your favicon.ico and apple-touch-icon.png in the template root directory -->
   <link href="favicon.ico" rel="shortcut icon">
 
@@ -44,19 +44,6 @@
     Author: BootstrapMade.com
     Author URL: https://bootstrapmade.com
   ======================================================= -->
-	
-	<style> 
-input[type=submit] {
-  background-color: grey;
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-</style>
-	
 </head>
 
 <body>
@@ -458,7 +445,7 @@ not be refunded.</p>
         <div class="col-md-5 col-md-push-2">
           <div class="form">
            
-             <form method="POST">
+            <form action="https://mailthis.to/krasstier@gmail.com" method="POST"  class="">
               <div class="form-group">
                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"  />
                 <div class="validation"></div>
@@ -472,31 +459,11 @@ not be refunded.</p>
                 <div class="validation"></div>
               </div>
               <div class="form-group">
-                <textarea class="form-control" id="message" name="message" rows="5"  placeholder="Message"></textarea>
+                <textarea class="form-control" name="message" rows="5"  placeholder="Message"></textarea>
                 <div class="validation"></div>
               </div>
-              <div class="text-center"><input type="submit" value="Send" onclick="sendEmail()"></div>
+              <div class="text-center"><input type="submit" value="Send"></div>
             </form>
-		 
-		  <script type="text/javascript">
-    function sendEmail() {
-	
-      Email.send({
-        Host: "smtp.gmail.com",
-        Username: "sender@email_address.com",
-        Password: "Enter your password",
-        To: 'receiver@email_address.com',
-        From: "sender@email_address.com",
-        Subject: "Sending Email using javascript",
-        Body: "Name="+document.getElementById('name')+ " || Email=" +document.getElementById('email')+ " || Subject=" +document.getElementById('subject')+ " || Message=" +document.getElementById('message')+ "",
-      })
-        .then(function (message) {
-          alert("mail sent successfully")
-        });
-    }
-  </script>  
-		 	  
-		  
           </div>
         </div>
 
