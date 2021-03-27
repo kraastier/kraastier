@@ -5,7 +5,11 @@ require("class.phpmailer.php");
 $name = $_POST['name'];
 $email = $_POST['email'];
 $subject = $_POST['subject'];
-$mesg = $_POST['message'];
+$mesg = "<br>Email = ".$email.
+	"<br>Name =".$name.
+	"<br>Subject =".$subject.
+	"<br> Message =".$_POST['message']
+	;
 
 					$msg=	$mesg;
 					$mail = new PHPMailer();
@@ -15,12 +19,12 @@ $mesg = $_POST['message'];
 					$mail->SMTPAuth = true;
 					$mail->SMTPSecure = "auto";
 					$mail->Port = 587;
-					$mail->Username = "kunalmanocha241@gmail.com";
-					$mail->Password = "cse14313.sbit";
+					$mail->Username = "kraastier@gmail.com";
+					$mail->Password = "zobobby2021";
 
-					$mail->From = "kunalmanocha241@gmail.com";
+					$mail->From = "kraastier@gmail.com";
 					$mail->FromName = "User query";
-					$mail->AddAddress('kunalmanocha241@gmail.com');
+					$mail->AddAddress('kraastier@gmail.com');
 
 					$mail->IsHTML(true);
 
