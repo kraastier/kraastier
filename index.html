@@ -458,7 +458,7 @@ not be refunded.</p>
         <div class="col-md-5 col-md-push-2">
           <div class="form">
            
-             <form action="https://mailthis.to/krasstier@gmail.com" method="POST"  class="">
+             <form >
               <div class="form-group">
                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"  />
                 <div class="validation"></div>
@@ -472,11 +472,49 @@ not be refunded.</p>
                 <div class="validation"></div>
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="message" rows="5"  placeholder="Message"></textarea>
+                <textarea class="form-control" id="message" name="message" rows="5"  placeholder="Message"></textarea>
                 <div class="validation"></div>
               </div>
-              <div class="text-center"><input type="submit" value="Send"></div>
+              <div class="text-center"><input type="submit" value="Send" onclick="saveFile()"></div>
             </form>
+		  
+		  <script>
+    let saveFile = () => {
+    	
+        // Get the data from each element on the form.
+    	const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const subject = document.getElementById('subject');
+        const message = document.getElementById('message');
+        
+        // This variable stores all the data.
+        let data = 
+            '\r Name: ' + name.value + ' \r\n ' + 
+            'Email: ' +email.value + ' \r\n ' + 
+            'Subject: ' + subject.value + ' \r\n ' + 
+            'Message: ' + message.value;
+        
+        // Convert the text to BLOB.
+        const textToBLOB = new Blob([data], { type: 'text/plain' });
+        const sFileName = 'formData.txt';	   // The file to save the data.
+
+        let newLink = document.createElement("a");
+        newLink.download = sFileName;
+
+        if (window.webkitURL != null) {
+            newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+        }
+        else {
+            newLink.href = window.URL.createObjectURL(textToBLOB);
+            newLink.style.display = "none";
+            document.body.appendChild(newLink);
+        }
+
+        newLink.click(); 
+    }
+</script>
+		  
+		  
           </div>
         </div>
 
